@@ -1,18 +1,17 @@
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Arrays for domain name parts
     let pronouns = ['the', 'our'];
     let adjs = ['great', 'big'];
     let nouns = ['jogger', 'racoon'];
 
-    let domainList = document.getElementById('domainList');
+    // Generate random indices for each array
+    let randomPronounIndex = Math.floor(Math.random() * pronouns.length);
+    let randomAdjIndex = Math.floor(Math.random() * adjs.length);
+    let randomNounIndex = Math.floor(Math.random() * nouns.length);
 
-    for (let i = 0; i < pronouns.length; i++) {
-        for (let j = 0; j < adjs.length; j++) {
-            for (let k = 0; k < nouns.length; k++) {
-                let domainName = pronouns[i] + adjs[j] + nouns[k] + '.com';
-                let listItem = document.createElement('li');
-                listItem.textContent = domainName;
-                domainList.appendChild(listItem);
-            }
-        }
-    }
-};
+    // Construct the domain name
+    let domainName = pronouns[randomPronounIndex] + adjs[randomAdjIndex] + nouns[randomNounIndex] + '.com';
+
+    // Update the content of the <p> element with id "domainName"
+    document.getElementById('domainName').textContent = domainName;
+});
